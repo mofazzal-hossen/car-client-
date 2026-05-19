@@ -1,5 +1,6 @@
 import Banner from "@/components/homeComponents/Banner";
 import Process from "@/components/homeComponents/Process";
+import WhyDriveFleet from "@/components/homeComponents/WhyDriveFleet";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <Banner />
       <Process />
+      <WhyDriveFleet />
     </>
   );
 }
