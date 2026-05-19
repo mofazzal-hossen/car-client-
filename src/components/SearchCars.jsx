@@ -8,6 +8,8 @@ const SearchCars = () => {
     const [search, setSearch] = useState("");
     const router = useRouter();
 
+    
+
     const handleSearch = (e) => {
         e.preventDefault();
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Car, CheckCircle, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import { h1 } from "framer-motion/client";
+import { BookingModal } from "@/components/BookingModal";
 
 const CarDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -177,11 +178,11 @@ const CarDetailsPage = async ({ params }) => {
                         </div>
 
                         {/* Button */}
-                        <Link href={`/book-car/${_id}`}>
-                            <button className="w-full rounded-2xl bg-blue-600 py-5 text-xl font-semibold transition hover:bg-blue-700">
-                                Book Now
-                            </button>
-                        </Link>
+
+
+                        <div>
+                            <BookingModal car={car} />
+                        </div>
                     </div>
                 </div>
             </div>

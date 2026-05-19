@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function HeroBanner() {
   return (
@@ -73,18 +74,21 @@ export default function HeroBanner() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-5 mt-12">
-            {/* Red Button */}
-            <button className="bg-[#ff1e1e] hover:bg-[#e01717] transition-all duration-300 text-white text-[22px] font-medium px-10 h-[78px] rounded-full flex items-center gap-3">
-              Add Listing
-              <ArrowUpRight size={28} />
-            </button>
 
-            {/* Outline Button */}
-            <button className="border-2 border-white/70 hover:bg-white hover:text-black transition-all duration-300 text-white text-[22px] font-medium px-10 h-[78px] rounded-full flex items-center gap-3">
-              Explore Cars
-              <ArrowUpRight size={28} />
-            </button>
+            <Link href="/explore-cars">
+
+              <button className="border-2 border-white/70 hover:bg-white hover:text-black transition-all duration-300 text-white text-[22px] font-medium px-10 h-[78px] rounded-full flex items-center gap-3">
+
+                Explore Cars
+
+                <ArrowUpRight size={28} />
+
+              </button>
+
+            </Link>
+
           </div>
+
         </div>
       </div>
     </section>

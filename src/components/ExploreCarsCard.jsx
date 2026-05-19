@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ExploreCarsCard = ({ car }) => {
     return (
-        <div className="group overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-sm transition hover:-translate-y-2 hover:shadow-2xl">
+        <div className="group overflow-hidden rounded-[32px] border border-gray-200 bg-[#111827] shadow-sm transition hover:-translate-y-2 hover:shadow-2xl">
 
             {/* Image */}
             <div className="relative overflow-hidden h-65">
@@ -97,7 +97,7 @@ const ExploreCarsCard = ({ car }) => {
                     </div>
 
                 </div>
-                
+
                 <Link href={`/car-details/${car._id}`}>
                     <button className="rounded-2xl bg-black px-6 py-4 text-lg font-semibold text-white transition hover:bg-blue-600">
                         View Details
