@@ -1,15 +1,20 @@
 import ExploreCarsCard from "@/components/ExploreCarsCard";
+import SearchCars from "@/components/SearchCars";
 
-const RantAllCar = async () => {
+const RantAllCar = async ({ searchParams }) => {
 
-    const res = await fetch("http://localhost:6001/AddCar", {
-        cache: "no-store",
-    });
+    const params = await searchParams;
+    const search = params.search;
+
+    // Fetch Cars
+    const res = await fetch(
+        `http://localhost:6001/AddCar?search=${search}`,
+        {
+            cache: "no-store",
+        }
+    );
 
     const response = await res.json();
-
-    console.log(response);
-
     return (
         <div className="min-h-screen bg-[#0b0b0f] py-16 px-4">
 
@@ -19,6 +24,7 @@ const RantAllCar = async () => {
                 <h1 className="text-5xl font-bold text-white">
                     🚗 Rent All Cars
                 </h1>
+                <SearchCars />
 
                 <p className="mt-4 text-slate-400">
                     Choose the perfect car for your next journey.
