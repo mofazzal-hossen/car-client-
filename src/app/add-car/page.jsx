@@ -17,20 +17,20 @@ const AddCar = () => {
         console.log(carData);
 
         // API Call
-        //     const res = await fetch(
-        //         "http://localhost:6001/add-car",
-        //         {
-        //             method: "POST",
-        //             headers: {
-        //                 "Content-Type": "application/json",
-        //             },
-        //             body: JSON.stringify(carData),
-        //         }
-        //     );
+            const res = await fetch(
+                "http://localhost:6001/AddCar",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(carData),
+                }
+            );
 
-        //     const data = await res.json();
+            const data = await res.json();
 
-        //     console.log(data);
+            console.log(data);
     };
 
     return (
@@ -246,7 +246,7 @@ const AddCar = () => {
                             </TextField>
 
                             {/* Availability */}
-                            <div className="space-y-2">
+                            <div className="space-y-2  ">
 
                                 <label className="text-sm text-white">
                                     Availability Status
@@ -269,6 +269,23 @@ const AddCar = () => {
                                         Unavailable
                                     </option>
                                 </select>
+
+
+
+                            </div>
+                            {/* Departure Date */}
+                            <div className="w-full space-y-2">
+
+                                <label className="text-sm font-medium text-white">
+                                    Departure Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="departureDate"
+                                    required
+                                    className="w-full h-14 rounded-2xl bg-white/10 border border-white/20 px-4 text-white outline-none focus:border-orange-500 transition"
+                                />
                             </div>
 
                             {/* Description */}
@@ -298,6 +315,7 @@ const AddCar = () => {
 
                                     <FieldError />
                                 </TextField>
+
 
                             </div>
                         </div>
