@@ -10,6 +10,7 @@ import {
 
 import { authClient } from "@/lib/auth-client";
 
+
 export function BookingModal({ car }) {
 
     const { data: session } = authClient.useSession();
@@ -73,7 +74,12 @@ export function BookingModal({ car }) {
             status: "Pending",
         };
 
-        console.log(bookingData);
+        // console.log(bookingData);
+
+        const { data: tokenData } = await authClient.token();
+        console.log(tokenData)
+
+
 
         // API CALL
         const res = await fetch(
@@ -82,13 +88,12 @@ export function BookingModal({ car }) {
                 method: "POST",
 
                 headers: {
-                    "Content-Type":
-                        "application/json",
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${tokenData?.token}`,
+
                 },
 
-                body: JSON.stringify(
-                    bookingData
-                ),
+                body: JSON.stringify(bookingData),
             }
         );
 

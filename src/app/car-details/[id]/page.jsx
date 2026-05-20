@@ -1,13 +1,24 @@
 import Link from "next/link";
 import { ArrowLeft, Calendar, Car, CheckCircle, MapPin, Users } from "lucide-react";
 import Image from "next/image";
-import { h1 } from "framer-motion/client";
 import { BookingModal } from "@/components/BookingModal";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { g } from "framer-motion/client";
 
 const CarDetailsPage = async ({ params }) => {
     const { id } = await params;
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
 
-    const res = await fetch(`http://localhost:6001/AddCar/${id}`, { cache: "no-store", }
+    const res = await fetch(`http://localhost:6001/AddCar/${id}`, {
+        cache: "no-store",
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    }
     );
     if (!res.ok) {
         throw new Error("Failed to fetch car");
