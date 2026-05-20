@@ -41,7 +41,7 @@ const ExploreCarsCard = ({ car }) => {
 
                 {/* Title */}
                 <div>
-                    <h2 className="text-3xl font-bold text-gray-900 leading-tight">
+                    <h2 className="text-3xl font-bold text-gray-300 leading-tight">
                         {car.carName}
                     </h2>
 

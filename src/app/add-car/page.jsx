@@ -1,11 +1,15 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Button, Card, FieldError, Input, Label, TextArea, TextField } from "@heroui/react";
 
 import { Car, DollarSign, Users, MapPin, Image as ImageIcon, FileText, CheckCircle } from "lucide-react";
 const AddCar = () => {
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
 
     const onSubmit = async (e) => {
+
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
@@ -14,23 +18,26 @@ const AddCar = () => {
             formData.entries()
         );
 
+        // IMPORTANT for backend to know which user added the car
+        carData.createdBy = user.email;
+
         console.log(carData);
 
         // API Call
-            const res = await fetch(
-                "http://localhost:6001/AddCar",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(carData),
-                }
-            );
+        const res = await fetch(
+            "http://localhost:6001/AddCar",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(carData),
+            }
+        );
 
-            const data = await res.json();
+        const data = await res.json();
 
-            console.log(data);
+        console.log(data);
     };
 
     return (

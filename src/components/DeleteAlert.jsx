@@ -23,7 +23,7 @@ export function DeleteAlert({ response }) {
         try {
 
             const res = await fetch(
-                `http://localhost:6001/booking/${_id}`,
+                `http://localhost:6001/AddCar/${_id}`,
                 {
                     method: "DELETE",
                 }
@@ -53,8 +53,9 @@ export function DeleteAlert({ response }) {
     return (
         <button
             onClick={handleDelete}
-            className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 font-medium text-red-600 transition hover:bg-red-100"
-        >
+            className="flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-2 font-medium transition hover:bg-gray-100">
+
+
 
             <MdDelete className="text-xl" />
 

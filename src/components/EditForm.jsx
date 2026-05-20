@@ -29,7 +29,7 @@ export function EditForm({ response }) {
 
         // API CALL
         const res = await fetch(
-            `http://localhost:6001/booking/${_id}`,
+            `http://localhost:6001/AddCar/${_id}`,
             {
                 method: "PATCH",
                 headers: {
@@ -64,7 +64,7 @@ export function EditForm({ response }) {
 
                 <Modal.Container placement="center">
 
-                    <Modal.Dialog className="sm:max-w-2xl rounded-3xl bg-white p-6">
+                    <Modal.Dialog className="sm:max-w-2xl rounded-3xl bg-mauve-800 p-6">
 
                         <Modal.CloseTrigger />
 
@@ -73,7 +73,7 @@ export function EditForm({ response }) {
 
                             <div>
 
-                                <Modal.Heading className="text-3xl font-bold text-black">
+                                <Modal.Heading className="text-3xl font-bold text-white">
                                     Edit Booking
                                 </Modal.Heading>
 
@@ -103,7 +103,7 @@ export function EditForm({ response }) {
                                         name="carName"
                                         isRequired
                                     >
-                                        <Label>Car Name</Label>
+                                        <Label className=" text-black">Car Name</Label>
 
                                         <Input
                                             className="rounded-2xl"
@@ -119,7 +119,7 @@ export function EditForm({ response }) {
                                         name="pickupLocation"
                                         isRequired
                                     >
-                                        <Label>Pickup Location</Label>
+                                        <Label className=" text-black">Pickup Location</Label>
 
                                         <Input
                                             className="rounded-2xl"
@@ -139,7 +139,7 @@ export function EditForm({ response }) {
                                         <select
                                             name="driverNeeded"
                                             defaultValue={driverNeeded}
-                                            className="h-14 w-full rounded-2xl border border-gray-300 bg-white px-4 outline-none"
+                                            className="h-14 w-full rounded-2xl border border-gray-300 bg-mauve-800 px-4 outline-none"
                                         >
                                             <option value="Yes">
                                                 Yes
@@ -158,7 +158,7 @@ export function EditForm({ response }) {
                                         type="number"
                                         isRequired
                                     >
-                                        <Label>Total Price</Label>
+                                        <Label className=" text-black">Total Price</Label>
 
                                         <Input
                                             type="number"
@@ -179,7 +179,7 @@ export function EditForm({ response }) {
                                         <select
                                             name="status"
                                             defaultValue={status}
-                                            className="h-14 w-full rounded-2xl border border-gray-300 bg-white px-4 outline-none"
+                                            className="h-14 w-full rounded-2xl border border-gray-300 bg-mauve-800 px-4 outline-none"
                                         >
                                             <option value="Pending">
                                                 Pending
